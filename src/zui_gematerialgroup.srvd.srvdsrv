@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_GeMaterialGroup_S'
+define service ZUI_GEMATERIALGROUP {
+  expose ZI_GEMATERIALGROUP_S as GeMaterialGroupAll;
+  expose ZI_GEMATERIALGROUP as GeMaterialGroup;
+}

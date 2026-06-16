@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "A Weighment Approval application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "ZWT_APPROVAL"
+  },
+  "ui5AppDetails": {
+    "appId": "zweighmentapproval"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_EF60A9EF75A826445E49C3B39FA2CE98E4681B46_TM",
+    "semanticObject": "zweight_appr_so",
+    "action": "DISPLAY",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_EF60A9EF75A826445E49C3B39FA2CE98E4681B46_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "ZWT_APPROVAL",
+        "subtitle": "Weightment  Approval"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GRN"
+  },
+  "ui5AppDetails": {
+    "appId": "testzapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_CBA4D91AE25C519158254B873FF53451E487227E_TM",
+    "semanticObject": "zgrn_v1_so",
+    "action": "DISPLAY",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_CBA4D91AE25C519158254B873FF53451E487227E_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GRN",
+        "subtitle": "GRN App"
+      }
+    }
+  ]
+}

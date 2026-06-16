@@ -1,0 +1,9 @@
+CLASS zbp_r_weighment_appr DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_weighment_appr.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_R_WEIGHMENT_APPR IMPLEMENTATION.
+ENDCLASS.

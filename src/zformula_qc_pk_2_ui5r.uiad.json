@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "ZQC_FORMULA"
+  },
+  "ui5AppDetails": {
+    "appId": "com.demo.formulaqcpk"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1C0844CCFD8854A7914A5A3F6FFB2DFC0019BF7D_TM",
+    "semanticObject": "zqc_so_object",
+    "action": "DISPLAY",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1C0844CCFD8854A7914A5A3F6FFB2DFC0019BF7D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "ZQC_FORMULA",
+        "subtitle": "ZQC_FORMULA"
+      }
+    }
+  ]
+}

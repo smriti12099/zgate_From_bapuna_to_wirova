@@ -1,0 +1,11 @@
+@EndUserText.label: 'ZAC_C_GE_TYPE Access Control for C View GE Type'
+@MappingRole: true
+define role ZAC_C_GE_TYPE {
+    grant
+        select
+            on
+                zge_c_head
+                    where
+                        inheriting conditions from entity zge_r_head;
+                        
+}

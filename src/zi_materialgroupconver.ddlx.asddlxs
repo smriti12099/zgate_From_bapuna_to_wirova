@@ -1,0 +1,50 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MaterialGroupConver', 
+    typeNamePlural: 'MaterialGroupConvers', 
+    title: {
+      type: #STANDARD, 
+      label: 'Material Group Conversion', 
+      value: 'Materialgroup'
+    }
+  }
+}
+annotate view ZI_MaterialGroupConver with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 ,
+    label: 'Material Group'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MaterialGroupConver', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Material Group Conversion', 
+    position: 1 
+  } ]
+  Materialgroup;
+  
+  @UI.identification: [ {
+    position: 2 ,
+    label: 'Unit'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 ,
+    label: 'Unit'
+  } ]
+  Unit;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Value'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Conversion Value'
+  } ]
+  Value;
+}

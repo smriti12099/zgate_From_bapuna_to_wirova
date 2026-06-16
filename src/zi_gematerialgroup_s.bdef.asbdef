@@ -1,0 +1,77 @@
+managed with additional save implementation in class ZBP_I_GEMATERIALGROUP_S unique;
+strict;
+with draft;
+define behavior for ZI_GeMaterialGroup_S alias GeMaterialGroupAll
+draft table ZGE_MAT_GRP_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _GeMaterialGroup { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+
+}
+
+define behavior for ZI_GeMaterialGroup alias GeMaterialGroup ##UNMAPPED_FIELD
+persistent table ZGE_MAT_GRP
+draft table ZGE_MAT_GRP_D
+lock dependent by _GeMaterialGroupAll
+authorization dependent by _GeMaterialGroupAll
+{
+  field ( mandatory : create )
+   MaterialGroup;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt;
+
+  field ( readonly : update )
+   MaterialGroup;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZGE_MAT_GRP
+  {
+    MaterialGroup = MATERIAL_GROUP;
+    Materialgrouptext = MATERIALGROUPTEXT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _GeMaterialGroupAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+
+}

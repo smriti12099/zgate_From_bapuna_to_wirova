@@ -1,0 +1,41 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain Material Group TMG1",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_MATERIALGROUPTMG1_O4",
+    "serviceName": "ZUI_MATERIALGROUPTMG1_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "MaterialGroupTmgAll",
+    "name": "Material Group TMG3",
+    "transportObject": "",
+    "configurationGroup": "",
+    "skipRootEntity": true,
+    "enableFileUpload": false
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "MaterialGroupTmgAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "MaterialGroupTmg1",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

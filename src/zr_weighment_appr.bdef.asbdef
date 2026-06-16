@@ -1,0 +1,31 @@
+managed implementation in class zbp_r_weighment_appr unique;
+strict ( 2 );
+
+define behavior for Zr_Weighment_Appr //alias <alias_name>
+persistent table ztab_weight_apr
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field (readonly : update ) GateNumber;
+  field( readonly : create ) Approval;
+
+  field ( readonly :update )  GateType,  InitWtDate, InitWtTime;
+
+  //action (features : global ) SetApprove result [1] $self;
+  action (features : global ) SetApprove result [1] $self;
+
+
+determination CalculateTimeDate on save { create; }
+
+  mapping for ztab_weight_apr{
+  GateNumber = gate_number;
+  GateType = gate_type;
+  InitWtDate = init_wt_date;
+  InitWtTime = init_wt_time;
+  Approval = approval;
+  }
+}

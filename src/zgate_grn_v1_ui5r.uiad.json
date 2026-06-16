@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "GM App"
+  },
+  "ui5AppDetails": {
+    "appId": "testzapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3136DE905F3512D7C70D4540335B216F1D83BB0E_TM",
+    "semanticObject": "Object",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3136DE905F3512D7C70D4540335B216F1D83BB0E_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "GM App"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+managed implementation in class zbp_cds_gate_print_head unique;
+strict ( 2 );
+
+define behavior for ZCDS_GATE_PRINT_HEAD //alias <alias_name>
+persistent table zge_hdr
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) gateentryno;
+  action PrintGateEntry result [1] $self;
+  association _ge_item { create; }
+}
+
+define behavior for ZCDS_GATE_PRINT_ITEM //alias <alias_name>
+persistent table zge_itm
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) gatenumber;
+  association _Header;
+}

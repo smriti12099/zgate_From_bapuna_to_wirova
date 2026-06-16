@@ -1,0 +1,76 @@
+managed with additional save implementation in class ZBP_I_TMGTABLEFORGATEWEIG_S unique;
+strict;
+with draft;
+define behavior for ZI_TmgTableForGateWeig_S alias TmgTableForGateWAll
+draft table ZTMG_WEIGHT_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _TmgTableForGateWeig { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+
+}
+
+define behavior for ZI_TmgTableForGateWeig alias TmgTableForGateWeig ##UNMAPPED_FIELD
+persistent table ZTMG_WEIGHT_APPR
+draft table ZTMG_WEIGHT_A_D
+lock dependent by _TmgTableForGateWAll
+authorization dependent by _TmgTableForGateWAll
+{
+  field ( mandatory : create )
+   Userid,
+   Purpose;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Userid,
+   Purpose;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZTMG_WEIGHT_APPR
+  {
+    Userid = USERID;
+    Purpose = PURPOSE;
+  }
+
+  association _TmgTableForGateWAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+
+}

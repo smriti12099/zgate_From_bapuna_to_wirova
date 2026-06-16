@@ -1,0 +1,11 @@
+@EndUserText.label: 'Acces Control for gate Entry Type'
+@MappingRole: true
+define role ZAC_GE_TYPE {
+    grant 
+        select
+            on
+                zge_r_head
+                    where
+                        (GateType) = aspect pfcg_auth(ZAO_GETYPE, ZAF_GETYPE, ACTVT = '02');
+                        
+}

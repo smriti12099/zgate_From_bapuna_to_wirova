@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD for Weighment Approval'
+define service Zsd_Weighment_appr {
+  expose Zc_Weighment_Appr as Weightment_Approval;
+}

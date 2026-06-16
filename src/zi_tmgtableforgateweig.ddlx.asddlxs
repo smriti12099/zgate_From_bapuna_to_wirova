@@ -1,0 +1,41 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'TmgTableForGateWeig', 
+    typeNamePlural: 'TmgTableForGateWeigs', 
+    title: {
+      type: #STANDARD, 
+      label: 'TMG Table for Gate & Weighment Approval', 
+      value: 'Userid'
+    }
+  }
+}
+annotate view ZI_TmgTableForGateWeig with
+{
+
+
+      @Consumption.valueHelpDefinition: [{ entity: {  element: 'UserID'  , name: 'Zcds_I_Users'  } }]
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_TmgTableForGateWeig', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'TMG Table for Gate & Weighment Approval', 
+    position: 1 
+  } ]
+  Userid;
+  
+      @Consumption.valueHelpDefinition: [{ entity: {  element: 'purpose'  , name: 'Zcds_I_Purpose'  } }]
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Purpose;
+}

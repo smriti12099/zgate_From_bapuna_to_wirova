@@ -1,0 +1,77 @@
+managed with additional save implementation in class ZBP_I_MATERIALGROUPCONVER_S unique;
+strict;
+with draft;
+define behavior for ZI_MaterialGroupConver_S alias MaterialGroupConAll
+draft table ZGE_MG_CONV_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _MaterialGroupConver { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+
+}
+
+define behavior for ZI_MaterialGroupConver alias MaterialGroupConver ##UNMAPPED_FIELD
+persistent table ZGE_MG_CONVERT
+draft table ZGE_MG_CONVER_D
+lock dependent by _MaterialGroupConAll
+authorization dependent by _MaterialGroupConAll
+{
+  field ( mandatory : create )
+   Materialgroup,
+   Unit;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Materialgroup,
+   Unit;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZGE_MG_CONVERT
+  {
+    Materialgroup = MATERIALGROUP;
+    Unit = UNIT;
+    Value = VALUE;
+  }
+
+  association _MaterialGroupConAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+
+}

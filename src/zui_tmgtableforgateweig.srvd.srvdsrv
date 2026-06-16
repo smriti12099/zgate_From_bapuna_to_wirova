@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_TmgTableForGateWeig_S'
+define service ZUI_TMGTABLEFORGATEWEIG {
+  expose ZI_TMGTABLEFORGATEWEIG_S as TmgTableForGateWAll;
+  expose ZI_TMGTABLEFORGATEWEIG as TmgTableForGateWeig;
+}

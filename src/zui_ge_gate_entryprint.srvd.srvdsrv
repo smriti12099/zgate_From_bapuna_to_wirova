@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for GE print'
+define service ZUI_GE_GATE_ENTRYPRINT {
+  expose ZGE_C_HDR_PRINT;
+}

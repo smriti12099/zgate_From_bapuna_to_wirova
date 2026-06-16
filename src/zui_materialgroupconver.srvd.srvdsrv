@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MaterialGroupConver_S'
+define service ZUI_MATERIALGROUPCONVER {
+  expose ZI_MATERIALGROUPCONVER_S as MaterialGroupConAll;
+  expose ZI_MATERIALGROUPCONVER as MaterialGroupConver;
+}

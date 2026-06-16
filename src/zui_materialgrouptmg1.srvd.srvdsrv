@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MaterialGroupTmg1_S'
+define service ZUI_MATERIALGROUPTMG1 {
+  expose ZI_MATERIALGROUPTMG1_S as MaterialGroupTmgAll;
+  expose ZI_MATERIALGROUPTMG1 as MaterialGroupTmg1;
+}

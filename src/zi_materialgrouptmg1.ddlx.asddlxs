@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MaterialGroupTmg1', 
+    typeNamePlural: 'MaterialGroupTmg1s', 
+    title: {
+      type: #STANDARD, 
+      label: 'Material Group TMG1', 
+      value: 'MaterialGroup'
+    }
+  }
+}
+annotate view ZI_MaterialGroupTmg1 with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MaterialGroupTmg1', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Material Group TMG1', 
+    position: 1 
+  } ]
+  MaterialGroup;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Materialgrouptext;
+}
